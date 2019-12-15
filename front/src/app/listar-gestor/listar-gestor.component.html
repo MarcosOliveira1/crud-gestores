@@ -1,0 +1,42 @@
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <h2>Lista de gestores</h2>
+        <br>
+        <button type="button" routerLink="/gestor" class="btn btn-success">Novo+</button>
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col-sm-12">
+        <table id="tabelaGestores" class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nome</th>
+              <th>Matricula</th>
+              <th>Data de nascimento</th>
+              <th>Setor</th>
+              <th>Altera</th>
+              <th>Excluir</th>
+            </tr>
+          </thead>
+          <tbody *ngIf="gestores">
+            <tr *ngFor="let gestor of gestores">
+              <td>{{gestor.id}}</td>
+              <td>{{gestor.nome}}</td>
+              <td>{{gestor.matricula}}</td>
+              <td> {{gestor.dataNascimento | date: 'dd/MM/yyyy'}}</td>
+              <td>{{gestor.setor}}</td>
+              <td>
+                <button type="button" class="btn btn-info" routerLink="/listaGestor/{{gestor.id}}">Alterar</button>
+              </td>
+              <td>
+                <button type="button" class="btn btn-danger" (click)="excluir(gestor.id)">Excluir</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

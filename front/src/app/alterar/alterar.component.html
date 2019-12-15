@@ -1,0 +1,53 @@
+<div class="container" *ngIf="gestor">
+    <form #f="ngForm" autocomplete="off" (ngSubmit)="alterar(f,gestor.id)">
+        <input type="hidden" name="id" id="id" value="3">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <h1>Alterar Gestor</h1>
+            </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col-sm-1">
+                <label>Nome:</label>
+            </div>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" name="nome" value="{{gestor.nome}}" />
+            </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col-sm-1">
+                <label>Matricula:</label>
+            </div>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" name="matricula" id="matricula"  value="{{gestor.matricula}}"/>
+            </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col-sm-1">
+                <label>Nascimento:</label>
+            </div>
+            <div class="col-sm-4">
+                <input type="date" class="form-control" name="dataNasc" id="dataNasc" value="{{gestor.dataNascimento}}"/>
+            </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col-sm-1">
+                <label>Setor:</label>
+            </div>
+            <div class="col-sm-4">
+                <select class="form-control" name="setor" id="setor" [(ngModel)]="cadastros.setor" >
+                    <option value="Administrativo">Administrativo</option>
+                    <option value="Tecnologia">Tecnologia</option>
+                    <option value="Recursos humanos">Recursos humanos</option>
+                    <option value="Help desk">Help desk</option>
+                </select>
+            </div>
+        </div>
+        <br/>
+        <div class="row justify-content-md-center">
+            <div class="col-sm-5 text-center">
+                <button type="submit" class="btn btn-info">Salvar</button>
+            </div>
+        </div>
+    </form>
+</div>
